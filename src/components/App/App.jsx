@@ -10,17 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading, selectError, selectContacts } from 'redux/selectors';
 
 export const App = () => {
-  // const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading)
-  // const error = useSelector(selectError)
-  //  const contacts = useSelector(selectContacts);
-  
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const contacts = useSelector(selectContacts);
 
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
-
-
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <ContactsLayout>
@@ -29,10 +26,9 @@ export const App = () => {
       <ContactListTitle>Contacts</ContactListTitle>
       <ContactFilter />
 
-      {/* {isLoading && !error && <b>Request in progress...</b>}
-      {contacts.length > 0 && }
-       */}
-      <ContactList />
+      {isLoading && !error && <b>Loading...</b>}
+      {contacts.length > 0 && <ContactList />}
+
       <GlobalStyle />
     </ContactsLayout>
   );

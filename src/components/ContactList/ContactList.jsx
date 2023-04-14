@@ -1,9 +1,10 @@
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { ContactContainer, List } from './ContactList.styled';
-// import { nanoid } from 'nanoid';
-import { useSelector} from 'react-redux';
-// import { selectContacts, selectFilter } from 'redux/selectors';
+
+import { useSelector } from 'react-redux';
 import { selectFilteredContacts } from 'redux/selectors';
+
+
 
 
 
